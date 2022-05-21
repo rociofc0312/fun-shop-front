@@ -1,0 +1,16 @@
+.loading {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.loading>p {
+    margin: 10px 0;
+}
+
+.icon {
+    width: 9%;
+}
+
+.loading-dots {
+    text-align: center;
+}

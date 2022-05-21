@@ -1,0 +1,31 @@
+.cart-item {
+}
+
+.item-cell {
+    display: flex;
+    box-sizing: border-box;
+}
+
+.item-cell>img {
+    width: 80px;
+    object-fit: contain;
+}
+
+.item-cell>p {
+    margin: auto;
+    margin-left: 20px;
+}
+
+.remove-item {
+    background: url('../../assets/delete-light.png') no-repeat;   
+    background-size: 20px 20px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin: auto;
+}
+
+.remove-item:hover {
+    background: url('../../assets/delete-dark.png') no-repeat;   
+    background-size: 20px 20px;
+}

@@ -1,0 +1,29 @@
+.image-container {
+    width: 100%;
+    position: relative;
+}
+
+.slide-image:first-child {
+    position: relative;
+}
+
+.slide-image {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
+    z-index: 10;
+    box-shadow: 0 0px 8px 0 rgba(0,0,0,0.2);
+    opacity: 0;
+    transition-duration: 1s ease;
+}
+
+.active {
+    z-index: 11;
+    opacity: 1;
+    transition-duration: 1s;
+    transform: scale(1.00);
+}

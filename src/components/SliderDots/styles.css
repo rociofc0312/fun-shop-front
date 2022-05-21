@@ -1,0 +1,22 @@
+.all-dots {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 12;
+    margin-top: 10px;
+}
+
+.dot {
+    cursor: pointer;
+    height: 1rem;
+    width: 1rem;
+    margin: 0 3px;
+    background-color: rgb(249 229 177);
+    border-radius: 50%;
+    display: inline-block;
+    z-index: 12;
+}
+
+.active-dot, .dot:hover {
+    background-color: rgb(249 213 119);
+}
