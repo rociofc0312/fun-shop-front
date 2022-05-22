@@ -12,6 +12,8 @@ import { useIsMountedRef } from '../../hooks/useIsMountedRef'
 import OrderContainer from '../OrderContainer/OrderContainer'
 import NotFound from '../../components/shared/NotFound/NotFound'
 import '../../App.css';
+import RegisterContainer from '../RegisterContainer/RegisterContainer'
+import LoginContainer from '../LoginContainer/LoginContainer'
 
 const BaseContainer = () => {
     const { setCategories } = useContext(CategoriesContext)
@@ -43,6 +45,8 @@ const BaseContainer = () => {
                     <Route path="/category/:id" component={ItemListContainer} />
                     <Route exact path="/cart" component={CartContainer} />
                     <Route exact path="/orders" component={OrderContainer} />
+                    <Route exact path="/register" component={RegisterContainer} />                    
+                    <Route exact path="/login" component={LoginContainer} />
                     <Route exact path="/" component={CategoryListContainer} />
                     <Route render={() => <NotFound message="Esta página no fue encontrada" />} />
                 </Switch>

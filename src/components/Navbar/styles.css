@@ -44,14 +44,14 @@
     font-weight: 500;
 }
 
-.order-item {
+.nav-icons {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-right: 5px;
 }
 
-#order-img {
+.nav-icon-img {
     width: 35px;
     cursor: pointer;
 }

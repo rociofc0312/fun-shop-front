@@ -1,0 +1,11 @@
+#logout-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+}
+
+#logout-cart {
+  width: 35px;
+  cursor: pointer;
+}
