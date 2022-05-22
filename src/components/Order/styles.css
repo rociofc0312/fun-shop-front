@@ -1,0 +1,19 @@
+.order {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dashed {
+    border-top: 1px dashed black;
+}
+
+.order-table {
+    text-align: center;
+}

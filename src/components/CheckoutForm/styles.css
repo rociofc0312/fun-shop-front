@@ -1,0 +1,63 @@
+ .checkout-form {
+  position: fixed;
+  background: white;
+  width: 80%;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 14;
+  padding: 20px;
+}
+
+.checkout-form>h3 {
+  text-align: center;
+}
+
+input[type=text],input[type=email], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+  
+input[type=submit] {
+  width: 100%;
+  background-color: #f7bb44;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+  
+input[type=submit]:hover {
+  background-color: #ffce6b;
+}
+
+input:focus {
+  outline:none;
+  border: 2px solid rgba(121,140,222,0.9);
+}
+
+.error-message {
+  color: #d43e37;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.successful-order {
+  text-align: center;
+}
+
+.link-orders {
+  text-decoration: none;
+  font-weight: 600;
+  color: #8e96f5;
+  margin-bottom: 10px;
+  display: block;
+}

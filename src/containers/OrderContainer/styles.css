@@ -1,0 +1,16 @@
+.order-container {
+    background-color: #ebecf5;
+    padding-bottom: 20px;
+}
+
+.order-container>h2 {
+    margin: 0;
+    padding: 20px 0;
+    text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+    .order-container {
+        font-size: 0.9rem;
+    }
+}

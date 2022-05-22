@@ -1,0 +1,60 @@
+.count {
+    text-align: center;
+}
+
+.item-count {
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    background-color: white;
+    /* border: 1px solid #7d8edf; */
+    border-radius: 10px;
+}
+
+.item-count>p {
+    text-align: left;
+}
+
+.counter {
+    display: flex;
+}
+
+.counter>p {
+    padding: 0 30px;
+}
+
+.count {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.update-count {
+    padding: 0 12px;
+    background: none;
+    border: 1px solid #cfcfe0;
+    color: #7d8edf;
+    cursor: pointer;
+    background-color: #cfcfe0;
+    font-weight: 600;
+    font-size: 1.5em;
+    border-radius: 10px;
+    outline: none;
+}
+
+.add-cart {
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    background: none;
+    border: 1px solid #efb034;
+    background-color: #efb034;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    outline: none;
+}
+
+.disabled {
+    background-color: #efb03496;
+    border: none;
+}

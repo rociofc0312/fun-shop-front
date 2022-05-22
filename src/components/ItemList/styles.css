@@ -1,0 +1,8 @@
+.item-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
+    padding: 20px;
+    background-color: #ebecf5;
+    border-radius: 15px;
+}

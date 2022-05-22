@@ -1,0 +1,29 @@
+.greeting {
+    text-align: center;
+}
+
+.slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 30px;
+}
+
+.image {
+    width: 80%;
+    box-shadow: 0 0px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.arrow {
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.right {
+    padding-left: 30px;
+}
+
+.left {
+    padding-right: 30px;
+}

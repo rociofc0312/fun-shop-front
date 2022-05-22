@@ -1,0 +1,28 @@
+.cart-container {
+    background-color: #ebecf5;
+    padding: 20px;
+}
+
+.cart-checkout {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.empty-cart {
+    background-color: white;
+    text-align: center;
+    color: #555;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.empty-cart>img {
+    width: 40%;
+}
+
+.back-main {
+    color:#8e96f5;
+    text-decoration: none;
+}
