@@ -1,20 +1,23 @@
- .checkout-form {
+.checkout-form {
   position: fixed;
   background: white;
   width: 80%;
   height: auto;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   z-index: 14;
   padding: 20px;
 }
 
-.checkout-form>h3 {
+.checkout-form > h3 {
   text-align: center;
 }
 
-input[type=text],input[type=email],input[type=password], select {
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -23,8 +26,8 @@ input[type=text],input[type=email],input[type=password], select {
   border-radius: 4px;
   box-sizing: border-box;
 }
-  
-input[type=submit] {
+
+input[type="submit"] {
   width: 100%;
   background-color: #f7bb44;
   color: white;
@@ -34,14 +37,14 @@ input[type=submit] {
   border-radius: 4px;
   cursor: pointer;
 }
-  
-input[type=submit]:hover {
+
+input[type="submit"]:hover {
   background-color: #ffce6b;
 }
 
 input:focus {
-  outline:none;
-  border: 2px solid rgba(121,140,222,0.9);
+  outline: none;
+  border: 2px solid rgba(121, 140, 222, 0.9);
 }
 
 .error-message {
@@ -55,9 +58,14 @@ input:focus {
 }
 
 .link-orders {
+  text-align: center;
   text-decoration: none;
   font-weight: 600;
   color: #8e96f5;
   margin-bottom: 10px;
   display: block;
+}
+
+.radio-btn {
+  padding-left: 10px;
 }

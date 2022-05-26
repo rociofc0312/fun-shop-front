@@ -5,6 +5,7 @@ import CartContext from "../../context/CartContext";
 import { timestamp } from "../../services/firebase";
 import { createOrder } from "../../services/orders";
 import Loading from "../shared/Loading/Loading";
+import { useAuth } from "../../context/AuthContext";
 import "./styles.css";
 
 const CheckoutForm = () => {
@@ -16,6 +17,7 @@ const CheckoutForm = () => {
   const { cart, clear, getCartTotal } = useContext(CartContext);
   const [orderId, setOrderId] = useState(null);
   const [loading, setLoading] = useState(false);
+  const { user, userFromDb, setUserFromDb } = useAuth();
 
   const sendOrder = (buyer, e) => {
     setLoading(true);
@@ -45,6 +47,7 @@ const CheckoutForm = () => {
       items,
       date: timestamp(),
       total: getCartTotal(),
+      buyerId: user.uid,
     };
   };
 
@@ -76,6 +79,7 @@ const CheckoutForm = () => {
             type="text"
             {...register("name", { required: true })}
             placeholder="Nombre completo..."
+            defaultValue={userFromDb && userFromDb.name}
           />
           {errors.name && errors.name.type === "required" && (
             <small className="error-message">El nombre es requerido</small>
@@ -90,6 +94,7 @@ const CheckoutForm = () => {
             })}
             placeholder="Teléfono..."
             maxLength="9"
+            defaultValue={userFromDb && userFromDb.telephone}
           />
           {errors.telephone && errors.telephone.type === "required" && (
             <small className="error-message">El teléfono es requerido</small>
@@ -97,44 +102,29 @@ const CheckoutForm = () => {
           {errors.telephone && errors.telephone.type === "pattern" && (
             <small className="error-message">El teléfono no es válido</small>
           )}
-          <label htmlFor="email">Email</label>
+          <label htmlFor="name">Dirección</label>
           <input
             type="text"
-            id="email"
-            {...register("email", {
-              required: true,
-              pattern:
-                /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-            })}
-            placeholder="Email..."
+            {...register("address", { required: true })}
+            placeholder="Dirección..."
+            defaultValue={userFromDb && userFromDb.address}
           />
-          {errors.email && errors.email.type === "required" && (
-            <small className="error-message">El email es requerido</small>
+          {errors.address && errors.address.type === "required" && (
+            <small className="error-message">El nombre es requerido</small>
           )}
-          {errors.email && errors.email.type === "pattern" && (
-            <small className="error-message">El email no es válido</small>
-          )}
+          <input
+            type="radio"
+            id="html"
+            name="fav_language"
+            value="Pago presencial"
+            checked
+          />
+          <label className="radio-btn" for="html">
+            Pago presencial
+          </label>
           <input type="submit" value="Enviar" />
         </form>
       )}
-      <form id="frm_ePaycoCheckoutOpen" 
-              name="frm_ePaycoCheckoutOpen" 
-              method="POST" 
-              action="https://secure.payco.co/checkoutopen.php">
-            
-              <input name="p_cust_id_cliente" type="hidden" value="622005"/>
-              <input name="p_key" type="hidden" value="cae84677903dac739f9bc37100659f2a1fc0a9f6"/>
-              <input name="p_id_factura" type="hidden" value=""/>
-              <input name="p_description" type="hidden" value="Merchandising"/>
-              <input name="p_detalle" type="hidden" value="Merchandising"/>
-              <input name="p_referencia" type="hidden" value="P0001"/>
-              <input name="p_test_request" type="hidden" value="false"/>
-              <input name="p_url_respuesta" type="hidden" value="http://localhost:3000/orders"/>
-              <input name="p_url_confirmacion" type="hidden" value=""/>
-              <input type="image" id="imagen" src="https://multimedia.epayco.co/dashboard/btns/btn5.png" alt=""/>
-              <input type="hidden" id="idboton" name="idboton" value="45804"/>
-                                
-        </form>
     </div>
   );
 };

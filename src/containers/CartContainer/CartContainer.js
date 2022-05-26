@@ -5,14 +5,20 @@ import CartSummary from '../../components/CartSummary/CartSummary'
 import empty from '../../assets/empty.png'
 import { Link } from 'react-router-dom'
 import CheckoutContainer from '../CheckoutContainer/CheckoutContainer'
+import { useAuth } from "../../context/AuthContext";
 import './styles.css'
 
 const CartContainer = () => {
     const { cart } = useContext(CartContext)
     const [showCheckout, setShowCheckout] = useState(false)
+    const { user, userFromDb, setUserFromDb } = useAuth();
 
     const showCheckoutModal = () => {
-        setShowCheckout(!showCheckout)
+        if(!user) {
+            alert('Debe iniciar sesión.')
+        } else {
+            setShowCheckout(!showCheckout)
+        }
     }
 
     const hideCheckoutModal = () => {

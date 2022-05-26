@@ -5,6 +5,7 @@ import DefaultProfileImage from "../../assets/user-placeholder.png";
 import "./styles.css";
 import { getUser, updateUser } from "../../services/users";
 import { useIsMountedRef } from "../../hooks/useIsMountedRef";
+import { Link } from "react-router-dom";
 
 function ProfileContainer() {
   const {
@@ -15,7 +16,7 @@ function ProfileContainer() {
   const { user, userFromDb, setUserFromDb } = useAuth();
   const [loading, setLoading] = useState(false);
   const [img, setImg] = useState();
-  const { isMountedRef } = useIsMountedRef()
+  const { isMountedRef } = useIsMountedRef();
 
   const onImageChange = (e) => {
     const file = e.target.files;
@@ -36,11 +37,11 @@ function ProfileContainer() {
           method: "POST",
           body: formData,
         }
-      ).then(resp => {
+      ).then((resp) => {
         let data = resp.json();
         return data;
       });
-      const dataToSave = {...data, image: image.secure_url}
+      const dataToSave = { ...data, image: image.secure_url };
       await updateUser(user.uid, dataToSave);
       setUserFromDb(dataToSave);
     } catch (e) {
@@ -52,31 +53,32 @@ function ProfileContainer() {
 
   useEffect(() => {
     getUser(user.uid)
-    .then((result) => {
-      console.log(result)
-        if (isMountedRef.current) setUserFromDb(result)
-    })
-    .finally(() => {
-        if (isMountedRef.current) setLoading(false)
-    })
-  }, [])
+      .then((result) => {
+        console.log(result);
+        if (isMountedRef.current) setUserFromDb(result);
+      })
+      .finally(() => {
+        if (isMountedRef.current) setLoading(false);
+      });
+  }, []);
 
   return (
     <div className="update-form">
-      <h3>Registro</h3>
+      <h3>Perfil</h3>
       <form onSubmit={handleSubmit(updateProfile)}>
         <div id="profile-img">
-          <img id="profile" src={img || (userFromDb && userFromDb.image) || DefaultProfileImage} alt="Profile" />
+          <img
+            id="profile"
+            src={img || (userFromDb && userFromDb.image) || DefaultProfileImage}
+            alt="Profile"
+          />
           <div>
             <input
-              {...register("image", { required: true })}
+              {...register("image")}
               type="file"
               onChange={onImageChange}
             />
           </div>
-          {errors.image && errors.image.type === "required" && (
-            <small className="error-message">La imagen es requerida</small>
-          )}
         </div>
         <label htmlFor="name">Nombre Completo</label>
         <input
@@ -126,6 +128,9 @@ function ProfileContainer() {
         />
         <input type="submit" value="Actualizar" disabled={loading} />
       </form>
+      <Link to="/orders" className="link-orders">
+        Ver órdenes
+      </Link>
     </div>
   );
 }
