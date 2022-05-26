@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import { createUserDB } from "../../services/users";
 import './styles.css'
 
 function RegisterContainer() {
@@ -17,7 +18,14 @@ function RegisterContainer() {
   const createUser = async (data, e) => {
     try {
       setLoading(true);
-      await registerUser(data.email, data.password);
+      const response = await registerUser(data.email, data.password);
+      if(response.user) {
+        const userData = {
+          uid: response.user.uid,
+          email: response.user.email,
+        }
+        await createUserDB(userData);
+      }
       history.push('/');
     } catch(e) {
       console.log(e);
@@ -29,9 +37,8 @@ function RegisterContainer() {
   return (
     <div className="sign-form">
       <h3>Registro</h3>
-      {JSON.stringify(user)}
       <form onSubmit={handleSubmit(createUser)}>
-        <label htmlFor="name">Nombre Completo</label>
+        {/* <label htmlFor="name">Nombre Completo</label>
         <input
           type="text"
           {...register("name", { required: true })}
@@ -39,8 +46,8 @@ function RegisterContainer() {
         />
         {errors.name && errors.name.type === "required" && (
           <small className="error-message">El nombre es requerido</small>
-        )}
-        <label htmlFor="telephone">Teléfono</label>
+        )} */}
+        {/* <label htmlFor="telephone">Teléfono</label>
         <input
           type="text"
           id="telephone"
@@ -56,7 +63,7 @@ function RegisterContainer() {
         )}
         {errors.telephone && errors.telephone.type === "pattern" && (
           <small className="error-message">El teléfono no es válido</small>
-        )}
+        )} */}
         <label htmlFor="email">Email</label>
         <input
           type="email"

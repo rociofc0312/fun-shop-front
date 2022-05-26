@@ -1,0 +1,19 @@
+.update-form {
+  margin: auto;
+  background: white;
+  width: 70%;
+  height: auto;
+  padding: 20px;
+}
+
+.update-form>h3 {
+  text-align: center;
+}
+
+#profile-img {
+  text-align: center;
+}
+
+#profile {
+  width: 40%;
+}

@@ -14,6 +14,8 @@ import NotFound from '../../components/shared/NotFound/NotFound'
 import '../../App.css';
 import RegisterContainer from '../RegisterContainer/RegisterContainer'
 import LoginContainer from '../LoginContainer/LoginContainer'
+import PrivateRoute from '../../routes/PrivateRoute'
+import ProfileContainer from '../ProfileContainer/ProfileContainer'
 
 const BaseContainer = () => {
     const { setCategories } = useContext(CategoriesContext)
@@ -44,7 +46,8 @@ const BaseContainer = () => {
                     <Route path="/item/:id" component={ItemDetailContainer} />
                     <Route path="/category/:id" component={ItemListContainer} />
                     <Route exact path="/cart" component={CartContainer} />
-                    <Route exact path="/orders" component={OrderContainer} />
+                    <PrivateRoute exact path="/orders" component={OrderContainer} />
+                    <PrivateRoute exact path="/profile" component={ProfileContainer} />
                     <Route exact path="/register" component={RegisterContainer} />                    
                     <Route exact path="/login" component={LoginContainer} />
                     <Route exact path="/" component={CategoryListContainer} />

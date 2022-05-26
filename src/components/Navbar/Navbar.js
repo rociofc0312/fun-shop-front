@@ -9,6 +9,7 @@ import order from '../../assets/order.png'
 import user from '../../assets/user.png'
 import logout from '../../assets/logout.png'
 import LogOut from '../LogOut/LogOut';
+import UserWidget from '../UserWidget/UserWidget';
 
 const NavBar = ({ onClickedMenu }) => {
     const [showOptions, setShowOptions] = React.useState(false)
@@ -34,9 +35,7 @@ const NavBar = ({ onClickedMenu }) => {
                     {/* <Link className="order-item" to="/orders">
                         <img id="order-img" src={order} alt="order" />
                     </Link> */}
-                    <Link className="nav-icons" to="/login">
-                        <img className="nav-icon-img" src={user} alt="user" />
-                    </Link>
+                    <UserWidget />
                     <CartWidget />
                     <LogOut />
                     <div id="menu" onClick={() => onClickedMenu()}>
