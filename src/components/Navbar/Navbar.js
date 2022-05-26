@@ -6,6 +6,10 @@ import './styles.css'
 import NavBarDropdown from '../NavBarDropdown/NavBarDropdown'
 import { Link } from 'react-router-dom'
 import order from '../../assets/order.png'
+import user from '../../assets/user.png'
+import logout from '../../assets/logout.png'
+import LogOut from '../LogOut/LogOut';
+import UserWidget from '../UserWidget/UserWidget';
 
 const NavBar = ({ onClickedMenu }) => {
     const [showOptions, setShowOptions] = React.useState(false)
@@ -28,10 +32,12 @@ const NavBar = ({ onClickedMenu }) => {
                     </div>
                 </div>
                 <div className="menu-actions">
-                    <Link className="order-item" to="/orders">
+                    {/* <Link className="order-item" to="/orders">
                         <img id="order-img" src={order} alt="order" />
-                    </Link>
+                    </Link> */}
+                    <UserWidget />
                     <CartWidget />
+                    <LogOut />
                     <div id="menu" onClick={() => onClickedMenu()}>
                         <img src={menu} alt="menu"></img>
                     </div>
